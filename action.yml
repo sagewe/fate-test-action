@@ -1,0 +1,21 @@
+name: 'fate-test'
+description: 'run fate-test'
+inputs:
+  type:
+    description: 'test type'
+    required: true
+    default: 'dsl'
+  name:
+    description: 'test type'
+    required: true
+    default: ''
+
+outputs:
+  body:
+    description: 'The output body'
+runs:
+  using: 'docker'
+  image: 'docker://sagewei0/fate-test-action'
+  args:
+    - ${{ inputs.type }}
+    - ${{ inputs.name }}
